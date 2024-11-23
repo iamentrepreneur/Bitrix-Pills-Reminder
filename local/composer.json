@@ -1,0 +1,15 @@
+{
+    "name": "ilya/local",
+    "authors": [
+        {
+            "name": "Volkov Ilya",
+            "email": "volkov.taf.2014@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Local\\Lib\\": "lib/"
+        }
+    }
+}

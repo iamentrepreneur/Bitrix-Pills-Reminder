@@ -1,6 +1,8 @@
 <?
-AddEventHandler("main", "OnBeforeProlog", "MyOnBeforePrologHandler", 50);
-function MyOnBeforePrologHandler(){
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+//AddEventHandler("main", "OnBeforeProlog", "myMock", 50);
+function myMock(){
    global $USER;
    if(!is_object($USER)){
       $USER = new CUser();
@@ -10,4 +12,3 @@ function MyOnBeforePrologHandler(){
       die();
    }
 };
-?>

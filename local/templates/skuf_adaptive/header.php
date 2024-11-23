@@ -13,5 +13,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 		<div id="panel">
 			<?$APPLICATION->ShowPanel();?>
 		</div>
-	
-						
+
+    <div class="common-wrapper">
+        <div class="wrapper">
+        <h1>Тест</h1>
