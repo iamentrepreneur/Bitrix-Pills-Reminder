@@ -7,7 +7,8 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	<head>
 		<?$APPLICATION->ShowHead();?>
 		<title><?$APPLICATION->ShowTitle();?></title>
-		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /> 	
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="/fonts/montserrat/stylesheet.css" />
 	</head>
 	<body>
 		<div id="panel">
@@ -19,7 +20,10 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         <div class="wrapper">
             <div class="header">
                 <div class="top-logo">
-                    <a href="/">SKUFF</a>
+                    <a href="/">
+                        <span>SKUF</span>
+                        <span>Reminder</span>
+                    </a>
                 </div>
 
                 <?$APPLICATION->IncludeComponent(
@@ -44,4 +48,4 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         </div>
 
         <div class="wrapper">
-        <h1>Тест</h1>
+        <h1><?$APPLICATION->ShowTitle(false)?></h1>

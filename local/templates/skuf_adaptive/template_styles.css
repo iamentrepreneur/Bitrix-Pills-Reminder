@@ -1,10 +1,18 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat';
+    font-weight: normal;
+    font-style: normal;
 }
 
 *, *:after, *:before {
     box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
 }
 
 .common-wrapper {
@@ -26,13 +34,19 @@ body {
     padding: 30px 0;
 }
 
-.top-logo {
+.top-logo a {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+}
 
+.top-logo a span:first-child {
+    text-transform: uppercase;
+    margin-right: 15px;
 }
 
 .top-logo a {
     font-size: 40px;
     color: #333;
-    text-transform: uppercase;
     text-decoration: none;
 }
