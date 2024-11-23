@@ -18,3 +18,21 @@ body {
     width: 100%;
     margin: 0 auto;
 }
+
+.header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+.top-logo {
+
+}
+
+.top-logo a {
+    font-size: 40px;
+    color: #333;
+    text-transform: uppercase;
+    text-decoration: none;
+}

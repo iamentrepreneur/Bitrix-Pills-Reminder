@@ -15,5 +15,33 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 		</div>
 
     <div class="common-wrapper">
+
+        <div class="wrapper">
+            <div class="header">
+                <div class="top-logo">
+                    <a href="/">SKUFF</a>
+                </div>
+
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:menu",
+                    "top",
+                    Array(
+                        "ALLOW_MULTI_SELECT" => "N",
+                        "CHILD_MENU_TYPE" => "left",
+                        "DELAY" => "N",
+                        "MAX_LEVEL" => "1",
+                        "MENU_CACHE_GET_VARS" => array(""),
+                        "MENU_CACHE_TIME" => "3600",
+                        "MENU_CACHE_TYPE" => "N",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "ROOT_MENU_TYPE" => "top",
+                        "USE_EXT" => "N"
+                    )
+                );?>
+            </div>
+
+
+        </div>
+
         <div class="wrapper">
         <h1>Тест</h1>
