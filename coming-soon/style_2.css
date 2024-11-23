@@ -1,0 +1,193 @@
+.tech_works_container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    height: 100vh;
+    background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
+}
+
+body {
+    overflow: hidden;
+}
+
+.tech_logo {
+    text-align: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    margin: auto auto 30px auto;
+}
+
+.tech_description {
+    color: #fff;
+    text-align: center;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin: 0 auto auto auto;
+    display: none;
+}
+
+.tech_description p {
+    font-family: 'Montserrat';
+    color: #fff;
+    display: block;
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.agency_container {
+    margin: 0 -18px auto auto;
+}
+
+.one, .two, .three {
+    font-size: 20px;
+}
+
+.one {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.0s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.0s;
+    color: #fff;
+}
+
+.two {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.2s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.2s;
+    color: #fff;
+}
+
+.three {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.3s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.3s;
+    color: #fff;
+}
+
+@-webkit-keyframes dot {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes dot {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.tech_description h1 {
+    font-weight: 400;
+}
+
+.logo_svg {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    margin: auto auto auto auto;
+    /*
+        position: absolute;
+        top: 70px;
+        right: 30px;
+*/
+}
+
+.logo_svg img {
+    display: inline-block;
+}
+
+@media (min-width: 320px) {
+    .tech_description h1 {
+        font-family: 'Montserrat';
+        color: #fff;
+        margin: auto;
+        font-size: 20px;
+    }
+
+    .artofall {
+        width: 130px;
+        margin: 0 auto 15px 0;
+    }
+
+    .agency {
+        width: 73px;
+        margin: 0 -1px 0 auto;
+    }
+
+    /*
+        .messenger-button_show {
+            left: 18px!important;
+            right: auto!important;
+        }
+*/
+}
+
+@media (min-width: 400px) {
+    .tech_description h1 {
+        font-family: 'Montserrat';
+        color: #fff;
+        margin: auto;
+    }
+}
+
+@media (min-width: 640px) {
+    .tech_description h1 {
+        font-family: 'Montserrat';
+        color: #fff;
+        margin: auto;
+        font-size: 25px;
+    }
+
+    .artofall {
+        width: 180px;
+        margin: 0 auto 20px 0;
+    }
+
+    .agency {
+        width: 106px;
+        margin: 0 0 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .tech_description h1 {
+        font-family: 'Montserrat';
+        color: #fff;
+        margin: auto;
+        font-size: 25px;
+    }
+
+    /*
+        .messenger-button_show {
+            left: auto!important;
+            right: 18px!important;
+        }
+*/
+}
