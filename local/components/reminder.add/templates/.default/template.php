@@ -33,11 +33,6 @@
         </div>
 
         <div class="form-group">
-            <label for="times_per_day">Количество напоминаний в день:</label>
-            <input type="number" name="UF_TIMES_PER_DAY" id="times_per_day" min="1" required>
-        </div>
-
-        <div class="form-group">
             <div class="reminder-times" id="reminder-times">
                 <label>Время напоминаний:</label>
                 <div class="reminder-time">

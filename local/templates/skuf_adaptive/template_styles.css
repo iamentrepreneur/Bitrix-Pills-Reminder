@@ -162,3 +162,21 @@ input[type="text"], input[type="password"], input[type="number"], input[type="da
 .reminder-time button {
     background-color: red;
 }
+
+.success-message {
+    display: flex;
+    margin: auto auto 15px 0;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    padding: 15px;
+    background-color: #77dd77;
+    color: #fff;
+    width: 100%;
+    max-width: 400px;
+}
+
+.success-message span {
+    display: inline;
+    margin: auto;
+    font-weight: bold;
+}

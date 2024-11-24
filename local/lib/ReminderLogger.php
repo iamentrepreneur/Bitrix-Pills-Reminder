@@ -18,7 +18,7 @@ class ReminderLogger
     /**
      * @throws Exception
      */
-    public function logReminder($reminderId, $userId, $status, $details = ""): void
+    public function logReminder($reminderId, $userId, $status, $details = "", $chatId = null): void
     {
         Loader::includeModule("highloadblock");
         $hlblock = HL\HighloadBlockTable::getById($this->hlBlockId)->fetch();
@@ -30,10 +30,12 @@ class ReminderLogger
         $entityClass = $entity->getDataClass();
 
         $result = $entityClass::add([
+            "UF_USER_ID" => $userId,
             "UF_REMINDER_ID" => $reminderId,
+            "UF_SENT_TIME" => new \Bitrix\Main\Type\DateTime(),
             "UF_STATUS" => $status,
             "UF_DETAILS" => $details,
-            "UF_SENT_TIME" => new \Bitrix\Main\Type\DateTime(),
+            "UF_TELEGRAM_ID" => $chatId,
         ]);
 
         if (!$result->isSuccess()) {

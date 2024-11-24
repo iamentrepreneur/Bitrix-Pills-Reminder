@@ -61,7 +61,6 @@ class ReminderAddComponent extends CBitrixComponent
                 "UF_MEDICATION_NAME" => $request->getPost("UF_MEDICATION_NAME"),
                 "UF_START_DATE" => $this->handleDate($request->getPost("UF_START_DATE")),
                 "UF_END_DATE" => $this->handleDate($request->getPost("UF_END_DATE")),
-                "UF_TIMES_PER_DAY" => (int)$request->getPost("UF_TIMES_PER_DAY"),
                 "UF_REMINDER_TIMES" => $timesPerDayJson,
                 "UF_TELEGRAM_ID" => $this->getUserFiled($GLOBALS["USER"]->GetID(), "UF_TELEGRAM_ID"),
             ]);
