@@ -5,6 +5,8 @@ namespace Local\Lib;
 use Bitrix\Main\Loader;
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\Entity;
+use Bitrix\Main\LoaderException;
+use Exception;
 
 class HLBlockManager
 {
@@ -14,7 +16,8 @@ class HLBlockManager
      * Конструктор класса
      *
      * @param int $hlblockId ID Highload-блока
-     * @throws \Bitrix\Main\LoaderException
+     * @throws LoaderException
+     * @throws Exception
      */
     public function __construct(int $hlblockId)
     {
@@ -22,7 +25,7 @@ class HLBlockManager
         $hlblock = HL\HighloadBlockTable::getById($hlblockId)->fetch();
 
         if (!$hlblock) {
-            throw new \Exception("Highload-блок с ID $hlblockId не найден.");
+            throw new Exception("Highload-блок с ID $hlblockId не найден.");
         }
 
         $entity = HL\HighloadBlockTable::compileEntity($hlblock);
@@ -34,7 +37,7 @@ class HLBlockManager
      *
      * @param array $data Данные для добавления
      * @return int ID добавленной записи
-     * @throws \Exception
+     * @throws Exception
      */
     public function add(array $data): int
     {
@@ -42,7 +45,7 @@ class HLBlockManager
         if ($result->isSuccess()) {
             return $result->getId();
         } else {
-            throw new \Exception(implode(', ', $result->getErrorMessages()));
+            throw new Exception(implode(', ', $result->getErrorMessages()));
         }
     }
 
@@ -73,13 +76,13 @@ class HLBlockManager
      *
      * @param int $id ID записи
      * @param array $data Данные для обновления
-     * @throws \Exception
+     * @throws Exception
      */
     public function update(int $id, array $data): void
     {
         $result = $this->entityDataClass::update($id, $data);
         if (!$result->isSuccess()) {
-            throw new \Exception(implode(', ', $result->getErrorMessages()));
+            throw new Exception(implode(', ', $result->getErrorMessages()));
         }
     }
 
@@ -87,13 +90,13 @@ class HLBlockManager
      * Удаление записи
      *
      * @param int $id ID записи
-     * @throws \Exception
+     * @throws Exception
      */
     public function delete(int $id): void
     {
         $result = $this->entityDataClass::delete($id);
         if (!$result->isSuccess()) {
-            throw new \Exception(implode(', ', $result->getErrorMessages()));
+            throw new Exception(implode(', ', $result->getErrorMessages()));
         }
     }
 }

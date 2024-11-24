@@ -6,7 +6,9 @@
             "email": "volkov.taf.2014@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+      "ext-curl": "*"
+    },
     "autoload": {
         "psr-4": {
             "Local\\Lib\\": "lib/"
