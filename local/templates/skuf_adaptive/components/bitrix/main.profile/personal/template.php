@@ -7,7 +7,7 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
     die();
 
-if ($arResult["SHOW_SMS_FIELD"] == true) {
+if ($arResult["SHOW_SMS_FIELD"]) {
     CJSCore::Init('phone_auth');
 }
 ?>
@@ -22,7 +22,7 @@ if ($arResult["SHOW_SMS_FIELD"] == true) {
 
     <script type="text/javascript">
 
-        var opened_sections = [<?
+        let opened_sections = [<?
             $arResult["opened"] = $_COOKIE[$arResult["COOKIE_PREFIX"] . "_user_profile_open"];
             $arResult["opened"] = preg_replace("/[^a-z0-9_,]/i", "", $arResult["opened"]);
             if ($arResult["opened"] <> '') {
@@ -33,15 +33,15 @@ if ($arResult["SHOW_SMS_FIELD"] == true) {
             }
             ?>];
 
-        var cookie_prefix = '<?=$arResult["COOKIE_PREFIX"]?>';
+        const cookie_prefix = '<?=$arResult["COOKIE_PREFIX"]?>';
     </script>
 
-    <form method="post" name="form1" action="<?= $arResult["FORM_TARGET"] ?>" enctype="multipart/form-data" class="profile-form">
+    <form method="post" name="form1" action="<?= $arResult["FORM_TARGET"] ?>" enctype="multipart/form-data" class="auth-profile-form">
         <?= $arResult["BX_SESSION_CHECK"] ?>
         <input type="hidden" name="lang" value="<?= LANG ?>"/>
         <input type="hidden" name="ID" value="<?= $arResult["ID"] ?>"/>
 
-        <div class="profile-block <?= strpos($arResult["opened"], "reg") === false ? "hidden" : "shown" ?>" id="user_div_reg">
+        <div class="profile-block <?= !str_contains($arResult["opened"], "reg") ? "hidden" : "shown" ?>" id="user_div_reg">
             <div class="form-group">
                 <label for="NAME"><?= GetMessage('NAME') ?></label>
                 <input type="text" id="NAME" name="NAME" maxlength="50" value="<?= $arResult["arUser"]["NAME"] ?>"/>
@@ -55,16 +55,16 @@ if ($arResult["SHOW_SMS_FIELD"] == true) {
                 <input type="text" id="SECOND_NAME" name="SECOND_NAME" maxlength="50" value="<?= $arResult["arUser"]["SECOND_NAME"] ?>"/>
             </div>
             <div class="form-group">
-                <label for="LOGIN"><?= GetMessage('LOGIN') ?><span class="starrequired">*</span></label>
+                <label for="LOGIN"><?= GetMessage('LOGIN') ?><span class="star-required">*</span></label>
                 <input type="text" id="LOGIN" name="LOGIN" maxlength="50" value="<?= $arResult["arUser"]["LOGIN"] ?>"/>
             </div>
             <div class="form-group">
-                <label for="EMAIL"><?= GetMessage('EMAIL') ?><? if ($arResult["EMAIL_REQUIRED"]): ?><span class="starrequired">*</span><? endif ?></label>
+                <label for="EMAIL"><?= GetMessage('EMAIL') ?><? if ($arResult["EMAIL_REQUIRED"]): ?><span class="star-required">*</span><? endif ?></label>
                 <input type="text" id="EMAIL" name="EMAIL" maxlength="50" value="<?= $arResult["arUser"]["EMAIL"] ?>"/>
             </div>
 
             <div class="form-group">
-                <label for="UF_TELEGRAM_ID"><?= GetMessage('UF_TELEGRAM_ID') ?><span class="starrequired">*</span></label>
+                <label for="UF_TELEGRAM_ID"><?= GetMessage('UF_TELEGRAM_ID') ?><span class="star-required">*</span></label>
                 <input type="text" id="UF_TELEGRAM_ID" name="UF_TELEGRAM_ID" maxlength="50" value="<?= $arResult["arUser"]["UF_TELEGRAM_ID"] ?>"/>
             </div>
         </div>

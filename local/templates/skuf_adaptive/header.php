@@ -48,4 +48,6 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         </div>
 
         <div class="wrapper">
-        <h1><?$APPLICATION->ShowTitle(false)?></h1>
+            <div class="page-title">
+                <h1><?$APPLICATION->ShowTitle(false)?></h1>
+            </div>

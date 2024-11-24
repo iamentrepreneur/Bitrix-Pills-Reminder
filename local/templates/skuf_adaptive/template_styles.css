@@ -13,6 +13,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
+    color: #333;
+}
+
+.page-title {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 .common-wrapper {
@@ -49,4 +55,110 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 40px;
     color: #333;
     text-decoration: none;
+}
+
+.bx-auth-profile {
+
+}
+
+.auth-profile-form, .common-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"], input[type="number"], input[type="date"], input[type="time"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.star-required {
+    color: red;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.form-actions input, .form-actions button, .reminder-time button, .form-addition-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 15px 0 0;
+}
+
+.form-actions input:hover, .form-actions button:hover {
+    background-color: #0056b3;
+}
+
+.form-actions input[type="reset"], .form-actions button[type="reset"] {
+    background-color: #6c757d;
+}
+
+.form-actions input[type="reset"]:hover, .form-actions button[type="reset"]:hover {
+    background-color: #5a6268;
+}
+
+.reminder-times {
+    display: flex;
+    flex-direction: column;
+}
+
+.reminder-times label {
+    margin-bottom: 10px;
+}
+
+.reminder-time {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.reminder-time:last-child {
+    margin-bottom: 0;
+}
+
+.reminder-time input {
+    margin-right: 10px;
+}
+
+.form-addition-actions {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+}
+
+.form-addition-actions button {
+    background-color: #77dd77;
+    margin-right: 0;
+}
+
+.reminder-time button {
+    background-color: red;
 }
