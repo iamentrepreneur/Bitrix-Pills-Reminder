@@ -40,9 +40,9 @@ function sendRemindersAgent()
             $message = "Уже {$currentTime}, напоминанию: " . $reminder["UF_MEDICATION_NAME"];
             $notifier->sendMessage($chatId, $message);
 
-//            $logger->logReminder($reminder["ID"], $reminder["UF_USER_ID"],451, "Сообщение отправлено", $chatId);
+            $logger->logReminder($reminder["ID"], $reminder["UF_USER_ID"],451, "Сообщение отправлено", $chatId);
         } catch (Exception $e) {
-//            $logger->logReminder($reminder["ID"], $reminder["UF_USER_ID"],452, $e->getMessage(), $chatId);
+            $logger->logReminder($reminder["ID"], $reminder["UF_USER_ID"],452, $e->getMessage(), $chatId);
         }
     }
 
