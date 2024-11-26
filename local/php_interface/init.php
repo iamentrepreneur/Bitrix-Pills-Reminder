@@ -11,42 +11,38 @@ function sendRemindersAgent()
 {
     $currentTime = (new \Bitrix\Main\Type\DateTime())->format("H:i");
 
-    $hlblockId = 2;
-    $logHlblockId = 3;
+    $hlBlockId = 2;
+    $logHlBlockId = 3;
 
     Loader::includeModule("highloadblock");
-    $hlblock = Bitrix\Highloadblock\HighloadBlockTable::getById($hlblockId)->fetch();
-    if (!$hlblock) exit();
+    $hlBlock = Bitrix\Highloadblock\HighloadBlockTable::getById($hlBlockId)->fetch();
+    if (!$hlBlock) exit();
 
-    $entity = Bitrix\Highloadblock\HighloadBlockTable::compileEntity($hlblock);
+    $entity = Bitrix\Highloadblock\HighloadBlockTable::compileEntity($hlBlock);
     $entityClass = $entity->getDataClass();
 
-    $logger = new ReminderLogger($logHlblockId);
+    $logger = new ReminderLogger($logHlBlockId);
     $notifier = new TelegramNotifier();
+
+    $currentDate = new \Bitrix\Main\Type\DateTime();
 
     $reminders = $entityClass::getList([
         "filter" => [
-            "=UF_START_DATE" => new \Bitrix\Main\Type\DateTime(),
-            ">=UF_END_DATE" => new \Bitrix\Main\Type\DateTime(),
+            "<=UF_START_DATE" => $currentDate->format("d.m.Y"),
+            ">=UF_END_DATE" => $currentDate->format("d.m.Y"),
             "UF_REMINDER_TIMES" => "%\"$currentTime\"%",
         ],
     ])->fetchAll();
 
-    $manualDebug = "\n---------START----------\n";
-    $manualDebug .= date("Y.m.d G:i:s") . "\n";
-    $manualDebug .= print_r($reminders, true) . "\n";
-    $manualDebug .= "\n----------END-----------\n";
-    file_put_contents(__DIR__.'/reminders.txt', $manualDebug);
-
     foreach ($reminders as $reminder) {
         try {
             $chatId = $reminder["UF_TELEGRAM_ID"];
-            $message = "Напоминание: " . $reminder["UF_MEDICATION_NAME"];
+            $message = "Уже {$currentTime}, напоминанию: " . $reminder["UF_MEDICATION_NAME"];
             $notifier->sendMessage($chatId, $message);
 
-            $logger->logReminder($reminder["ID"], $reminder["UF_USER_ID"],451, "Сообщение отправлено", $chatId);
+//            $logger->logReminder($reminder["ID"], $reminder["UF_USER_ID"],451, "Сообщение отправлено", $chatId);
         } catch (Exception $e) {
-            $logger->logReminder($reminder["ID"], $reminder["UF_USER_ID"],452, $e->getMessage(), $chatId);
+//            $logger->logReminder($reminder["ID"], $reminder["UF_USER_ID"],452, $e->getMessage(), $chatId);
         }
     }
 
